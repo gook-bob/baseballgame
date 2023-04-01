@@ -46,6 +46,19 @@ public class ReadyBall {
                     }
                 }
             }
-        System.out.printf("\n%d스트라이크\n%d볼", strike,ball);
+    }
+
+    /*결과 출력 메소드*/
+    public void printBall() {
+        if (strike == 0 && ball == 0) {
+                System.out.println("아웃");
+            } else if(strike == 3){
+                System.out.println("\n정답입니다");
+            }
+            else {
+                System.out.printf("\n%d 스트라이크 %d 볼\n", strike, ball);
+                strike = 0;
+                ball = 0;
+            }
     }
 }
