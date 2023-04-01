@@ -24,18 +24,26 @@ public class ReadyBall {
 
     /*플레이어 숫자 입력 23.04.01*/
     public void playerBall () {
-        int input = scan.nextInt();
-        int myX = input / 100;
-        int myY = input / 10 - myX * 10;
-        int myZ = input - (myX * 100 + myY * 10);
-        int[] ballInput = {myX, myY, myZ};
-        for (int i = 0; i < BALL_SIZE; i++) {
-            playerNum[i] = ballInput[i];
+        while (true) {
+            int input = scan.nextInt();
+            int myX = input / 100;
+            int myY = input / 10 - myX * 10;
+            int myZ = input - (myX * 100 + myY * 10);
+            int[] ballInput = {myX, myY, myZ};
+            for (int i = 0; i < BALL_SIZE; i++) {
+                playerNum[i] = ballInput[i];
+            }
+            if (input < 1000 && !(myX == myY || myY == myZ || myZ == myX)) {
+                System.out.printf("\n%d %d %d", myX, myY, myZ);
+                break;
+            } else if (input >= 1000) {
+                System.out.println("3자리 입력해주세요");
+            } else {
+                System.out.println("중복 되었습니다.");
+            }
         }
-            System.out.printf("\n%d %d %d", myX, myY, myZ);
-        }
-
-    /*숫자 비교후 출력*/
+    }
+    /*숫자 비교후 출력 23.04.01*/
     public void checkBall(){
         for (int i = 0; i < BALL_SIZE; i++) {
               if (playerNum[i] == comNum[i]) {
@@ -48,7 +56,9 @@ public class ReadyBall {
             }
     }
 
-    /*결과 출력 메소드*/
+
+
+    /*결과 출력 메소드 23.04.01*/
     public void printBall() {
         if (strike == 0 && ball == 0) {
                 System.out.println("아웃");
@@ -61,4 +71,5 @@ public class ReadyBall {
                 ball = 0;
             }
     }
+
 }
