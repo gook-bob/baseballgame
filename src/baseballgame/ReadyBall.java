@@ -8,6 +8,9 @@ public class ReadyBall {
     private int[] playerNum = new int[BALL_SIZE];
     private int strike;
     private int ball;
+    private int gameOver;
+
+
 
     /*랜덤으로 생성하는 메소드 23.04.01*/
     public void comBall() {
@@ -43,6 +46,8 @@ public class ReadyBall {
             }
         }
     }
+
+
     /*숫자 비교후 출력 23.04.01*/
     public void checkBall(){
         for (int i = 0; i < BALL_SIZE; i++) {
@@ -64,6 +69,7 @@ public class ReadyBall {
                 System.out.println("아웃");
             } else if(strike == 3){
                 System.out.println("\n정답입니다");
+                setResult(1);
             }
             else {
                 System.out.printf("\n%d 스트라이크 %d 볼\n", strike, ball);
@@ -72,4 +78,13 @@ public class ReadyBall {
             }
     }
 
+    /*모든 숫자 다 맞췄을시 승리 23.04.02*/
+
+    public void setResult(int gameOver){
+        this.gameOver = gameOver;
+    }
+
+    public int getResult(){
+        return this.gameOver;
+    }
 }
